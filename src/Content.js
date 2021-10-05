@@ -12,8 +12,7 @@ export default class Content extends React.Component {
   render() {
     return (
       <div>
-        this is Content
-        <button onClick={this.callToParent}>Click here</button>
+        <button onClick={this.callToParent}>10.Click here</button>
       </div>
     );
   }

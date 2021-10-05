@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-class Content extends Component {
+class Footer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,4 +22,4 @@ class Content extends Component {
     );
   }
 }
-export default Content;
+export default Footer;
