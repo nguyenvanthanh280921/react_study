@@ -7,7 +7,7 @@ export default class Content extends React.Component {
     this.callToParent = this.callToParent.bind(this);
   }
   callToParent() {
-    this.props.setParrentText("abc ");
+    this.props.setParrentText("abc");
   }
   render() {
     return (

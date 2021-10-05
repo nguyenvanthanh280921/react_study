@@ -28,6 +28,8 @@ class App extends Component {
         <div>
           <span>DATA from Content Component: {this.state.text}</span>
         </div>
+        <Footer setParrentText={this.setText} />
+
         <Content setParrentText={this.setText} />
       </div>
     );
