@@ -21,12 +21,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>1. The content Parrent Component: {this.state.app}</p>
-        <p>
-          {" "}
-          2. The content where click to button in Footer Component:
-          {this.props.textFromContent}
-        </p>
         <Header headerText={this.state.app} textFromContent={this.state.text} />
         <hr />
         <Content
@@ -35,7 +29,11 @@ class App extends Component {
           textFromContent={this.state.text}
         />
         <hr />
-        <Footer setParrentText={this.setText} />
+        <Footer
+          setParrentText={this.setText}
+          contentText={this.state.app}
+          textFromContent={this.state.text}
+        />
       </div>
     );
   }
