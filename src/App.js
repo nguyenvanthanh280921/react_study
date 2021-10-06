@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      header: "abc",
+      app: "abc",
       text: "",
     };
     this.setText = this.setText.bind(this);
@@ -21,16 +21,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header
-          headerText={this.state.header}
+        <p>1. The content Parrent Component: {this.state.app}</p>
+        <p>
+          {" "}
+          2. The content where click to button in Footer Component:
+          {this.props.textFromContent}
+        </p>
+        <Header headerText={this.state.app} textFromContent={this.state.text} />
+        <hr />
+        <Content
+          setParrentText={this.setText}
+          contentText={this.state.app}
           textFromContent={this.state.text}
         />
-        <div>
-          <span>DATA from Content Component: {this.state.text}</span>
-        </div>
+        <hr />
         <Footer setParrentText={this.setText} />
-
-        <Content setParrentText={this.setText} />
       </div>
     );
   }

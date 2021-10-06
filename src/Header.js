@@ -10,13 +10,9 @@ class Content extends Component {
   render() {
     return (
       <div class>
-        <h3>1.The content Parent Component: {this.state.headerText}</h3>
-        <h3>
-          {" "}
-          2.The content where click to button in Footer Component:
-          {this.props.textFromContent}
-        </h3>
         <h1>This is Header Component </h1>
+        <p>3. This is content of Header Component:{this.state.headerText}</p>
+        <p>4. This is content of Parent Component: {this.props.headerText}</p>
       </div>
     );
   }

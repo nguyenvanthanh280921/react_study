@@ -4,15 +4,20 @@ class Footer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      headerText: "yyyyyyy",
+      footerText: "yyyyyyy",
     };
+    this.callToParrent = this.callToParrent.bind(this);
+  }
+  callToParrent() {
+    this.props.setParrentText("yyy");
   }
   render() {
     return (
       <div>
         <h1>This is Footer Component </h1>
-        <h3>This is content of Footer Component:{this.state.headerText}</h3>
-        <h3>This is content of Parent Component: {this.props.text}</h3>
+        <p>8. This is content of Footer Component:{this.state.footerText}</p>
+        <p>9. This is content of Parent Component: {this.props.headerText}</p>
+        <button onClick={this.callToParrent}>10.Clickhere</button>
       </div>
     );
   }
