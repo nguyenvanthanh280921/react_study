@@ -1,8 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React, { Component } from "react";
-import Headers from "./Headers.js";
-import Content from "./Headers.js";
+import Headers from "./Header.js";
+import Content from "./Content";
 import Footer from "./Footer";
 
 class App extends Component {
