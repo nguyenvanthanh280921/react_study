@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import React, { Component } from "react";
+import Headers from "./Headers.js";
+import Content from "./Headers.js";
+import Footer from "./Footer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      AppComponent: "Parrent App",
+      text: "",
+    };
+    this.setText = this.setText.bind(this);
+  }
+  setText(text) {
+    this.setState({ text: text });
+  }
+  render() {
+    return (
+      <div className="App">
+        <div>1. The content Parrent Component: {this.state.AppComponent}</div>
+        <div>
+          2. The content where click to button in Footer Component:{" "}
+          {this.state.text}
+        </div>
+        <Headers headerText={this.state.AppComponent} />
+        <hr />
+        <Content
+          setParrentText={this.setText}
+          contentText={this.state.AppComponent}
+          textFromContent={this.state.text}
+        />
+        <hr />
+        <Footer
+          setParrentText={this.setText}
+          contentText={this.state.AppComponent}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
