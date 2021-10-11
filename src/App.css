@@ -1,5 +1,8 @@
 .App {
-  padding-left: 50px;
+  width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid red;
 }
 
 .App-logo {

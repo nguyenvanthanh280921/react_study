@@ -1,26 +1,15 @@
-import { Component } from "react";
+import React, { useState } from "react";
 
-class Content extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      headerText: "vvvv",
-    };
-  }
-  render() {
-    return (
-      <div class>
-        <p>1. The content Parrent Component: {this.state.headerText}</p>
-        <p>
-          {" "}
-          2. The content where click to button in Footer Component:
-          {this.props.textFromContent}
-        </p>
-        <h1>This is Header Component </h1>
-        <p>3. This is content of Header Component:{this.state.headerText}</p>
-        <p>4. This is content of Parent Component: {this.props.headerText}</p>
-      </div>
-    );
-  }
+function Header(props) {
+  const { App } = props;
+  const [header] = useState("Component Header");
+  return (
+    <div>
+      <h1>This is Header Component</h1>
+      <h4>3.This is content of Parrent Component: {App}</h4>
+      <h4>4.This is content of Header Component: {header}</h4>
+    </div>
+  );
 }
-export default Content;
+
+export default Header;
