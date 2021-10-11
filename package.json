@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "react-study",
+=======
+  "name": "my-app",
+>>>>>>> 5024ceb4e942f2e935b62d5109253e49770f7f3a
   "version": "0.1.0",
   "private": true,
   "dependencies": {
