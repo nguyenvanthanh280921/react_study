@@ -19,7 +19,7 @@ function App() {
       <hr />
       <Contents App={ParrentApp} />
       <hr />
-      <Footers App={ParrentApp} />
+      <Footers dataFooter={Title} App={ParrentApp} />
     </div>
   );
 }
