@@ -1,28 +1,22 @@
 import React, { Component } from "react";
-import addBook from "./AddBook";
 
 class Books extends Component {
   state = {
-    Books: [
+    listBook: [
       { id: 1, title: "I love you so" },
       { id: 2, title: "My dad love me" },
       { id: 3, title: "You!!!!" },
     ],
   };
-  addBook = (book) => {
-    this.setState({
-      Books: [...this.state.Books, book],
-    });
-  };
   handleDeleteBook = (book) => {
-    let currentBook = this.state.Books;
+    let currentBook = this.state.listBook;
     currentBook = currentBook.filter((item) => item.id !== book.id);
     this.setState({
-      Books: currentBook,
+      listBook: currentBook,
     });
   };
   render() {
-    let { Books } = this.state;
+    let { listBook } = this.state;
     return (
       <div className="books">
         <div className="container">
@@ -34,9 +28,9 @@ class Books extends Component {
               <th>Delete</th>
             </thead>
             <tbody>
-              {Books &&
-                Books.length > 0 &&
-                Books.map((item, index) => {
+              {listBook &&
+                listBook.length > 0 &&
+                listBook.map((item, index) => {
                   return (
                     <tr className="book-child" key={item.id}>
                       <td>{index + 1}</td>
@@ -52,7 +46,7 @@ class Books extends Component {
                 })}
             </tbody>
           </table>
-          <addBook addBook={this.addBook} />
+          <button>ADD BOOK</button>
         </div>
       </div>
     );
