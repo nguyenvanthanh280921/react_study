@@ -33,6 +33,7 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin: 10px;
 }
 
 button[type="edit"] {
@@ -48,8 +49,7 @@ button[type="delete"] {
   background-color: red;
   color: white;
   padding: 10px 15px;
-
-  margin: 4px 2px;
+  margin: 4px 10px;
 }
 .App-logo {
   height: 40vmin;
