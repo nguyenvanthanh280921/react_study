@@ -47,9 +47,6 @@ export class App extends Component {
       }
     }
   }
-  editUser(userId, event) {
-    this.props.dispatch(editUser(userId, event));
-  }
   deleteUser(userId) {
     this.props.dispatch(deleteUser(userId));
   }
