@@ -9,7 +9,7 @@ const initUser = [
 const getIndexOfUser = (users, userId) => {
   for (var i = 0; i < users.length; i++) {
     var user = users[i];
-    if (user.id === userId) {
+    if (user.id == userId) {
       return i;
     }
   }
@@ -19,6 +19,21 @@ export const userReducer = (state = initUser, action) => {
   let users = state.slice();
   let nexUserId = users.length + 1;
   switch (action.type) {
+    case "SAVE":
+      if (action.data.userId) {
+        var index = getIndexOfUser(users, action.data.userId);
+        if (index !== -1) {
+          users[index].name = action.data.name;
+          users[index].email = action.data.email;
+        }
+      } else {
+        users.push({
+          id: nexUserId,
+          name: action.data.name,
+          email: action.data.email,
+        });
+      }
+      break;
     case "ADD":
       users.push({
         id: nexUserId,

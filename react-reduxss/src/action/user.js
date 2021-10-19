@@ -30,3 +30,13 @@ export const listUser = () => {
     type: "LIST",
   };
 };
+export const saveUser = (data) => {
+  return {
+    type: "SAVE",
+    data: {
+      name: data.name,
+      email: data.email,
+      userId: data.id ?? 0,
+    },
+  };
+};

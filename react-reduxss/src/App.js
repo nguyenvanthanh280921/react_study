@@ -2,20 +2,22 @@ import logo from "./logo.svg";
 import "./App.css";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addUser, deleteUser, editUser } from "./action/user";
+import { addUser, deleteUser, editUser, saveUser } from "./action/user";
 
 export class App extends Component {
   constructor(props, context) {
     super(props, context);
     this.handleChange = this.handleChange.bind(this);
-    this.addUser = this.addUser.bind(this);
+    this.saveUser = this.saveUser.bind(this);
   }
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
-  addUser() {
+  saveUser() {
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
+    let userId = document.getElementById("user_id").value;
+
     if (name == "" || name == undefined) {
       alert("Please enter your full name");
       return false;
@@ -24,7 +26,26 @@ export class App extends Component {
       alert("Please enter your full email");
       return false;
     }
-    this.props.dispatch(addUser({ name: name, email: email }));
+
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const validateEmail = re.test(String(email).toLowerCase());
+    if (validateEmail == false) {
+      alert("Please enter your correct email information!!!");
+      return false;
+    }
+    this.props.dispatch(saveUser({ name: name, email: email, id: userId }));
+  }
+  handleEdit(userId) {
+    let users = this.props.users;
+    for (let i = 0; i < users.length; i++) {
+      let user = users[i];
+      if (user.id == userId) {
+        document.getElementById("name").value = user.name;
+        document.getElementById("email").value = user.email;
+        document.getElementById("user_id").value = userId;
+      }
+    }
   }
   editUser(userId, event) {
     this.props.dispatch(editUser(userId, event));
@@ -41,6 +62,8 @@ export class App extends Component {
           <h1>Study React-redux</h1>
           <label>Name</label>
           <input type="text" id="name" placeholder="Your name" />
+          <input type="hidden" id="user_id" />
+
           <label>Email Address</label>
           <input
             type="email"
@@ -48,7 +71,7 @@ export class App extends Component {
             name="email"
             placeholder="Your emali"
           />
-          <button onClick={this.addUser}>Add</button>
+          <button onClick={this.saveUser}>Save</button>
           <table border="1" className="table-form">
             <thead>
               <tr>
@@ -66,8 +89,7 @@ export class App extends Component {
                     <td className="name">{user.name}</td>
                     <td>{user.email}</td>
                     <td>
-                      <button type="edit" onClick={() => this.editUser()}>
-                        {" "}
+                      <button onClick={this.handleEdit.bind(this, user.id)}>
                         Edit
                       </button>
                       <button

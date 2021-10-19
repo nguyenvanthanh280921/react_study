@@ -2,11 +2,11 @@
   text-align: center;
   width: 600px;
   margin: 10px auto;
-}
-.form-app {
-  border: 1px solid black;
+  border: 1px solid #afafaf;
   padding: 20px 10px;
-  text-align: center;
+}
+h1 {
+  background-color: #ccc;
 }
 label,
 button {
@@ -24,7 +24,7 @@ input {
 table {
   border-collapse: collapse;
   width: 100%;
-  border: red;
+  border: 1px solid rgb(180, 180, 180);
 }
 button {
   background-color: #2a832d;
@@ -48,8 +48,6 @@ button[type="edit"] {
 button[type="delete"] {
   background-color: red;
   color: white;
-  padding: 10px 15px;
-  margin: 4px 10px;
 }
 .App-logo {
   height: 40vmin;
