@@ -13,27 +13,47 @@ export class App extends Component {
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
-  saveUser() {
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let userId = document.getElementById("user_id").value;
+  validateEmail(email, userId) {
+    let message = "";
 
-    if (name == "" || name == undefined) {
-      alert("Please enter your full name");
-      return false;
-    }
     if (email == "" || email == undefined) {
-      alert("Please enter your full email");
-      return false;
+      return "Please enter your full email";
     }
-
     const re =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const validateEmail = re.test(String(email).toLowerCase());
     if (validateEmail == false) {
-      alert("Please enter your correct email information!!!");
+      return "Please enter your correct email information!!!";
+    }
+    let users = this.props.users;
+    if (users.length) {
+      for (let i = 0; i < users.length; i++) {
+        if (userId == 0 && users[i].email == email) {
+          return "Your email is duplicated, please re-login your email";
+        }
+        if (userId != 0) {
+          if (userId != users[i].id && users[i].email == email) {
+            return "Your email is duplicated, please re-login your email";
+          }
+        }
+      }
+    }
+    return message;
+  }
+  saveUser() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let userId = document.getElementById("user_id").value;
+    if (name == "" || name == undefined) {
+      alert("Please enter your full name");
       return false;
     }
+    let message = this.validateEmail(email, userId);
+    if (message != "") {
+      alert(message);
+      return false;
+    }
+
     this.props.dispatch(saveUser({ name: name, email: email, id: userId }));
   }
   handleEdit(userId) {
@@ -59,7 +79,7 @@ export class App extends Component {
           <h1>Study React-redux</h1>
           <label>Name</label>
           <input type="text" id="name" placeholder="Your name" />
-          <input type="hidden" id="user_id" />
+          <input type="hidden" id="user_id" defaultValue={0} />
 
           <label>Email Address</label>
           <input
