@@ -68,66 +68,77 @@ function App(props) {
   };
 
   return (
-    <div className="App">
-      <div className="container">
-        <h1>Study React-redux</h1>
-        <form
-          onSubmit={
-            userSelected
-              ? handleSubmit(handleEditUser)
-              : handleSubmit(handleSaveUser)
-          }
-        >
-          <label>Name</label>
-          <input type="text" {...register("name")} placeholder="Your name" />
-
-          <label>Email Address</label>
-          <input type="email" {...register("email")} placeholder="Your email" />
-          <button type="submit">Save</button>
-          {userSelected && (
-            <button type="button" onClick={clearSelected}>
-              Unselect
-            </button>
-          )}
-        </form>
-        <table border="1" className="table-form">
-          <thead>
-            <tr>
-              <th>No.</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user, index) => {
-              return (
-                <tr key={`user-${index}`}>
-                  <td>{user.id}</td>
-                  <td className="name">{user.name}</td>
-                  <td>{user.email}</td>
-                  <td>
-                    <button
-                      onClick={() => {
-                        setUserSelected(user);
-                      }}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      type="delete"
-                      onClick={() => {
-                        handleDeleteUser(user.id);
-                      }}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+    <div>
+      <div className="App">
+        <div className="text">
+          <h1>Study React-redux-thunk</h1>
+        </div>
+        <div className="container">
+          <form
+            onSubmit={
+              userSelected
+                ? handleSubmit(handleEditUser)
+                : handleSubmit(handleSaveUser)
+            }
+          >
+            <label>Name</label>
+            <input type="text" {...register("name")} placeholder="Your name" />
+            <label>Age</label>
+            <input type="number" {...register("age")} placeholder="Your age" />
+            <label>Email Address</label>
+            <input
+              type="email"
+              {...register("email")}
+              placeholder="Your email"
+            />
+            <button type="submit">Save</button>
+            {userSelected && (
+              <button type="button" onClick={clearSelected}>
+                Unselect
+              </button>
+            )}
+          </form>
+          <table border="1" className="table-form">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user, index) => {
+                return (
+                  <tr key={`user-${index}`}>
+                    <td>{user.id}</td>
+                    <td className="name">{user.name}</td>
+                    <td className="age">{user.age}</td>
+                    <td>{user.email}</td>
+                    <td>
+                      <button
+                        onClick={() => {
+                          setUserSelected(user);
+                        }}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        type="delete"
+                        onClick={() => {
+                          handleDeleteUser(user.id);
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
