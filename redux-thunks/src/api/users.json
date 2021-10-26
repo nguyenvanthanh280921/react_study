@@ -1,0 +1,18 @@
+[
+  { "id": 1, "name": "Thanh", "age": 10, "email": "thanh@gmail.com" },
+  {
+    "id": 2,
+    "name": "Thanhnvph11553",
+    "age": 20,
+    "email": "thanhnvph11553@fpt.edu.vn"
+  },
+  {
+    "id": 3,
+    "name": "Nguyễn Văn Thành",
+    "age": 21,
+    "email": "nguyenvanthanh@gmail.com"
+  },
+  { "id": 4, "name": "Thanhnv", "age": 19, "email": "thanhnv@gmail.com" },
+  { "id": 5, "name": "ThanhNV", "age": 20, "email": "thanhnvph11553@gmail.com" }
+]
+
