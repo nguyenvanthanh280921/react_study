@@ -13,21 +13,19 @@
 <body>
     <div>
         <h3>Tính chu vi - diện tích hình tròn</h3>
-        <p>Nhập bán kính hình tròn: <input type="number"  id="radius" placeholder="Circle radius" value="0" /></p> <!-- onkeyup="tan()" using for javascript-->
-        <p>Chu vi hình tròn là: <span id="circumference">0</span></p>
-        <br/>
-        <p>Diện tích hình tròn là: <span id="acreage">0</span></p>
+        <p>Nhập bán kính hình tròn: <input type="number"  id="bankinh"  /></p> 
+        <p>Chu vi hình tròn là: <span id="chuvi"></span></p>
+        <p>Diện tích hình tròn là: <span id="dientich"></span></p>
         </div>
     
-        <script type="text/javascript"> //JQUERY
+        <script type="text/javascript"> 
             $(document).ready(function(){
-                $("#radius").keyup(function(){
-                var r = $("#radius").val();
-                var circumferenceOfCircle = 2*3.14*r;
-                var acreageOfCircle = 3.14*r*r;
-        
-                $("#circumference").text(circumferenceOfCircle);
-                $("#acreage").text(acreageOfCircle);
+                $("#bankinh").keyup(function(){
+                var r = $("#bankinh").val();
+                var chuVi = 2*3.14*r;
+                var dienTich = 3.14*r*r;
+                $("#chuvi").text(chuVi);
+                $("#dientich").text(dienTich);
                 })
             })
         </script>
