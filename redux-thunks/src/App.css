@@ -50,6 +50,10 @@ button[type="delete"] {
   background-color: red;
   color: white;
 }
+button[type="all"] {
+  background-color: rgb(38, 0, 255);
+  color: white;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

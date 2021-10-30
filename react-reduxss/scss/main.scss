@@ -38,3 +38,47 @@
 
 // THEMES
 @import "themes/theme";
+
+.App {
+  text-align: center;
+  width: 600px;
+  margin: 10px auto;
+  border: 1px solid #afafaf;
+  padding: 20px 10px;
+  input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid rgb(180, 180, 180);
+      button {
+        background-color: #2a832d;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 10px;
+        button[type="edit"] {
+          background-color: blue;
+          border: none;
+          color: white;
+          padding: 10px 15px;
+          text-decoration: none;
+          margin: 4px 2px;
+          cursor: pointer;
+          button[type="delete"] {
+            background-color: red;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

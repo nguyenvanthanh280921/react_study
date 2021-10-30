@@ -1,15 +1,31 @@
+import user from "../api/user";
+
 export const addUser = (data) => {
   return {
-    type: "ADD",
+    type: "ADD_USER",
     data: {
       name: data.name,
       email: data.email,
     },
   };
 };
+
+//   export const saveUser = (data) => {
+//     return dispatch => {
+//         fetch("http://localhost:3000/api/user/save",{
+//             method: 'POST',
+//             headers: { 'Content-Type': 'application/json' },
+//             body: JSON.stringify(data)
+//         }).then(res => res.json()).then(
+//             (result) => { dispatch(fetchuser(result))},
+//             (error) => { dispatch(handlerError(error)) }
+//         );
+//     }
+// };
+
 export const editUser = (userId, data) => {
   return {
-    type: "EDIT",
+    type: "EDIT_USER",
     data: {
       name: data.name,
       email: data.email,
@@ -20,19 +36,17 @@ export const editUser = (userId, data) => {
 
 export const deleteUser = (userId) => {
   return {
-    type: "DELETE",
+    type: "DELETE_USER",
     userId: userId,
   };
 };
 
-export const listUser = () => {
-  return {
-    type: "LIST",
-  };
-};
-export const saveUser = (data) => {
-  return {
-    type: "SAVE_USER",
-    payload: data,
-  };
+export const listUser = () => async (dispatch) => {
+  try {
+    const { data } = await user.getAll();
+    // console.log(data);
+    dispatch({ type: "LIST_USER", payload: data });
+  } catch (error) {
+    console.log(error);
+  }
 };

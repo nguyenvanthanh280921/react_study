@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "nguyenvanthanh",
+        "age": 20,
+        "email": "thanhvannguyen@gmail.com"
+    },
+    {
+        "id": 2,
+        "name": "thanh",
+        "age": 21,
+        "email": "nguyenvanthanh@gmail.com"
+    },
+    {
+        "id": 3,
+        "name": "thanhnvph11553",
+        "age": 22,
+        "email": "thanhnvph11553@fpt.edu.vn"
+    },
+    {
+        "id": 4,
+        "name": "thanhnguyen",
+        "age": 242,
+        "email": "thanhnguyen@gmail.com"
+    },
+    {
+        "id": 4,
+        "name": "Nguyenthanh",
+        "age": 242,
+        "email": "nguyenthanh280901@gmail.com"
+    }
+]
