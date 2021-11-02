@@ -7,10 +7,11 @@ let classUsers = [
   { id: 6, name: "QuynhNB", email: "qunhnb@gmail.com", score: 7 },
   { id: 7, name: "TrungNV", email: "trungnv@gmail.com", score: 3 },
 ];
-let user = classUsers.filter(function (e) {
-  return e.name["T"];
+classUsers.map((user) => {
+  if (user.name.charAt(0) == "T") {
+    user.score >= 6 ? console.log(user.name) : "";
+  }
 });
-console.log(user);
 let users = classUsers.filter(function (e) {
   return e.score >= 6;
 });

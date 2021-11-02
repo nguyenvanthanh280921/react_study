@@ -45,4 +45,4 @@
 ];
 var_dump(array_filter($classUsers, function($user){
     return $user == ('score'>=6);
-}));
+},ARRAY_FILTER_USE_KEY));
