@@ -21,7 +21,7 @@
 
 <?php
 // ký tự liền sau 
-echo '<pre>'.PHP-EOL;
+echo '<pre>'.PHP_EOL;
     $str = 'a';
     echo ++$str; // prints 'b'
 
