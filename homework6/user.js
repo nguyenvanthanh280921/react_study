@@ -7,3 +7,11 @@ let classUsers = [
   { id: 6, name: "QuynhNB", email: "qunhnb@gmail.com", score: 7 },
   { id: 7, name: "TrungNV", email: "trungnv@gmail.com", score: 3 },
 ];
+let user = classUsers.filter(function (e) {
+  return e.name["T"];
+});
+console.log(user);
+let users = classUsers.filter(function (e) {
+  return e.score >= 6;
+});
+console.log(users);

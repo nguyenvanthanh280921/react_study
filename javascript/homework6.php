@@ -1,17 +1,7 @@
 <?php
-function lasochinhphuong($num){
-    if($num<=0)
-        return false;
-            $binhphuong=0;
-            $i=1;
-    while($binhphuong<=$num)
-{
-$binhphuong=$i*$i;
-    if($binhphuong==$num)
-        return true;
-        $i++;
-    }
-return false;
+function sochinhphuong($num){
+    if($num*$num<=0)
+        
 }
 
 if(lasochinhphuong(4))
